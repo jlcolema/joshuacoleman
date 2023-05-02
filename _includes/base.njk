@@ -1,0 +1,47 @@
+---
+title: My Rad Blog
+eleventyImport:
+	collections: ["post"]
+---
+
+<!doctype html>
+
+<html>
+
+	<head>
+
+		<title>{{ title }}</title>
+
+		<link rel="stylesheet" href="/assets/css/styles.css" />
+
+		<script src="/assets/js/scripts.js"></script>
+
+	</head>
+
+	<body>
+
+		<header>
+
+			{% set navPages = collections.all | eleventyNavigation %}
+
+			<ul>
+
+				{%- for entry in navPages %}
+
+					<li {% if entry.url == page.url %}class="my-active-class"{% endif %}>
+
+						<a href="{{ entry.url }}">{{ entry.title }}</a>
+
+					</li>
+
+				{%- endfor %}
+
+			</ul>
+
+		</header>
+
+		{{ content | safe }}
+
+	</body>
+
+</html>
