@@ -1,0 +1,27 @@
+---
+title: My Rad Blog
+eleventyImport:
+	collections: ["post"]
+---
+
+<!doctype html>
+
+<html>
+
+	<head>
+
+		<title>{{ title }}</title>
+
+		<link rel="stylesheet" href="/assets/css/styles.css" />
+
+		<script src="/assets/js/scripts.js"></script>
+
+	</head>
+
+	<body>
+
+		{{ content | safe }}
+
+	</body>
+
+</html>
