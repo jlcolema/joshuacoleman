@@ -1,4 +1,13 @@
+// Navigation Plugin
+// Source: https://www.11ty.dev/docs/plugins/navigation/
+
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+
 module.exports = function(eleventyConfig) {
+
+	// Navigation
+
+	eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
 	// ---------------------------
 	// Passthrough Copy
