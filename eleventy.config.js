@@ -13,6 +13,11 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
+// Inclusive Language Plugin
+// Source: https://www.11ty.dev/docs/plugins/inclusive-language/
+
+const inclusiveLangPlugin = require("@11ty/eleventy-plugin-inclusive-language");
+
 module.exports = function(eleventyConfig) {
 
 	// Navigation
@@ -26,6 +31,10 @@ module.exports = function(eleventyConfig) {
 	// Syntax Highlighting
 
 	eleventyConfig.addPlugin(syntaxHighlight);
+
+	// Inclusive Language
+
+	eleventyConfig.addPlugin(inclusiveLangPlugin);
 
 	// ---------------------------
 	// Passthrough Copy
