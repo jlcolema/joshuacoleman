@@ -1,14 +1,1 @@
-@font-face {
-	font-family: 'My Font Name';
-	src: url('/assets/fonts/font.woff2') format('woff2');
-	font-display: swap;
-}
 
-p {
-	color: pink;
-	font-family: 'My Font Name';
-}
-
-[aria-current="page"] {
-	color: green;
-}
