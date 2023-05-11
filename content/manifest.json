@@ -1,0 +1,23 @@
+{
+	"background_color": "#ffffff",
+	"description": "",
+	"dir": "ltr",
+	"display": "minimal-ui",
+	"icons": [
+		{
+			"src": "/assets/img/apple-touch-icon.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/assets/img/apple-touch-icon.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
+	"lang": "en",
+	"name": "Joshua Coleman's Website",
+	"short_name": "Joshua's Site",
+	"start_url": "/",
+	"theme_color": "#ffffff"
+}
