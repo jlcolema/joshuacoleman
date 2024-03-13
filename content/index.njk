@@ -3,14 +3,18 @@ layout: base.njk
 title: Home Page
 ---
 
-<h1>{{ title }}</h1>
+<section class="section section__introduction">
 
-<p>All Entries</p>
+	<div class="inner-wrap section__inner-wrap">
 
-<ul>
-	{% for post in collections.all %}
-		<li>
-			<a href="{{ post.url }}">{{ post.data.title }}</a>
-		</li>
-	{% endfor %}
-</ul>
+		<h1 class="heading section__heading">Inclusive Design Engineering and Training</h1>
+
+		<p><b>Hi, I&rsquo;m {{ metadata.title }}</b>, and I specialize in inclusive design implementation.</p>
+
+		<p>I work with companies and agencies around the world, building web user interfaces and digital products with focus on responsive design, accessibility, performance, and cutting-edge tech.</p>
+
+		<p>Learn more <a href="/about/">about me</a>.</p>
+
+	</div>
+
+</section>

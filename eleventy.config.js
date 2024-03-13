@@ -1,3 +1,10 @@
+// Bundler
+// Source: https://github.com/11ty/eleventy-plugin-bundle
+
+const bundlerPlugin = require("@11ty/eleventy-plugin-bundle");
+
+// Paths for canonical URL
+
 const path = require("path");
 
 // Service Worker
@@ -34,6 +41,22 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const inclusiveLangPlugin = require("@11ty/eleventy-plugin-inclusive-language");
 
 module.exports = function(eleventyConfig) {
+
+	// Cache Busting
+	// Source: https://rob.cogit8.org/posts/2020-10-28-simple-11ty-cache-busting/
+
+	eleventyConfig.addFilter("bust", (url) => {
+		const [urlPart, paramPart] = url.split("?");
+		const params = new URLSearchParams(paramPart || "");
+		params.set("v", DateTime.utc().toISODate({ format: 'basic' }));
+		return `${urlPart}?${params}`;
+	});
+
+	// Bundler
+
+	eleventyConfig.addPlugin(bundlerPlugin);
+
+	// Canonical URL Path
 
 	eleventyConfig.addFilter("getbase", function (value) {
 		const { dir } = path.parse(value);

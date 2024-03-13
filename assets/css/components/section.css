@@ -1,0 +1,22 @@
+/* Section
+------------------------------*/
+
+.section {
+	padding: 2rem 0;
+	/* background-color: var(--color-construction-secondary); */
+}
+
+.section__selected-work {}
+
+.section__recent-notes {}
+
+	.section__inner-wrap {}
+
+		.section__heading {}
+
+		.section__heading:has(+ .section__overview) {}
+
+		.section__overview {
+			/* margin-top: 0; */
+			margin-bottom: 2rem;
+		}

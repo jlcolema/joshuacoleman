@@ -1,0 +1,24 @@
+/* Main
+------------------------------*/
+
+.main {
+	display: flex;
+	justify-content: center;
+	/* background: var(--color-construction-secondary); */
+}
+
+	.main__wrap {
+		width: min(90vw, 50rem);
+		max-width: 90vw;
+		/* background: var(--color-construction-secondary); */
+	}
+
+		.section {
+			padding: 2rem 0;
+		}
+
+			.section__inner-wrap {}
+
+				.section__heading {}
+
+				.section__overview {}

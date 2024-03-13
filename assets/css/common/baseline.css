@@ -1,0 +1,356 @@
+/* Baseline
+------------------------------*/
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+* :before,
+* :after {
+	box-sizing: inherit;
+}
+
+body {
+	font-size: 1.125rem;
+	line-height: 1.5;
+	font-family: Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: var(--color-black);
+	background-color: var(--color-white);
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		/* color: var(--color-white); */
+		/* background-color: hsl(0, 0%, 12%); */
+	}
+}
+
+/* !- Block */
+
+h1 {
+	/* margin: 0 0 0.65rem 0; */
+	/* font-size: 3.375rem; */
+	/* line-height: 1.5; */
+	/* font-family: Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif; */
+	/* font-weight: bold; */
+	/* text-transform: uppercase; */
+	/* word-break: break-word; */
+	/* hyphens: auto; */
+}
+
+h2 {
+	/* margin: 0 0 0.65rem 0; */
+	/* font-size: 2.25rem; */
+	/* line-height: 1.5; */
+	/* font-family: Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif; */
+	/* font-weight: bold; */
+	/* text-transform: uppercase; */
+	/* word-break: break-word; */
+	/* hyphens: auto; */
+}
+
+h3 {
+	/* margin: 0 0 0.65rem 0; */
+	/* font-size: 3.375rem; */
+	/* line-height: 1.5; */
+	/* font-family: Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif; */
+	/* font-weight: bold; */
+	/* text-transform: uppercase; */
+	/* word-break: break-word; */
+	/* hyphens: auto; */
+}
+
+h4 {
+	/* margin: 0 0 0.65rem 0; */
+	/* font-size: 3.375rem; */
+	/* line-height: 1.5; */
+	/* font-family: Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif; */
+	/* font-weight: bold; */
+	/* text-transform: uppercase; */
+	/* word-break: break-word; */
+	/* hyphens: auto; */
+}
+
+h5 {
+	/* margin: 0 0 0.65rem 0; */
+	/* font-size: 3.375rem; */
+	/* line-height: 1.5; */
+	/* font-family: Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif; */
+	/* font-weight: bold; */
+	/* text-transform: uppercase; */
+	/* word-break: break-word; */
+	/* hyphens: auto; */
+}
+
+h6 {
+	/* margin: 0 0 0.65rem 0; */
+	/* font-size: 3.375rem; */
+	/* line-height: 1.5; */
+	/* font-family: Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif; */
+	/* font-weight: bold; */
+	/* text-transform: uppercase; */
+	/* word-break: break-word; */
+	/* hyphens: auto; */
+}
+
+p {
+	/* margin: 0 0 0.65rem 0; */
+	/* word-break: break-word; */
+	/* hyphens: auto; */
+}
+
+ol {
+	/* margin: 0 0 0.65rem 0; */
+	/* padding: 0 0 0 1.5rem; */
+}
+
+	ol li {}
+
+		ol li ol {
+			/* margin: 0; */
+		}
+
+ul {
+	/* margin: 0 0 0.65rem 0; */
+	/* padding: 0 0 0 1.5rem; */
+}
+
+	ul li {}
+
+		ul li ul {
+			/* margin: 0; */
+		}
+
+dl {
+	/* margin: 0 0 1.5rem 0; */
+}
+
+	dt {}
+
+	dd {
+		/* margin: 0 1.5rem 1.5rem 1.5rem; */
+	}
+
+table {
+	/* width: 100%; */
+	/* margin: 1.1111111111rem 0 0 0; */
+	/* border-collapse: collapse; */
+	/* border-spacing: 0; */
+	/* font-size: 0.875rem; */
+	/* line-height: 1.125rem; */
+	/* text-align: center; */
+}
+
+	thead {}
+
+	tbody {}
+
+	tfoot {}
+
+		tr {}
+
+			th {
+				/* padding: 0.75rem 0.625rem 0.5625rem 0; */
+				/* text-align: left; */
+				/* border-bottom: 0.125rem solid var(--color-black); */
+			}
+
+			td {
+				/* padding: 0.75rem 0.625rem 0.5625rem 0; */
+				/* border-bottom: 0.0625rem solid var(--color-black); */
+			}
+
+pre {
+	/* margin: 0 0 1.75rem 0; */
+	/* padding: 1.75rem; */
+	/* font-size: 0.9375rem; */
+	/* line-height: 1.5; */
+	/* font-family: 'Courier New', Courier, monospace; */
+	/* background-color: var(--color-gray-50); */
+	/* overflow: auto; */
+}
+
+article {}
+
+caption {}
+
+figure {
+	max-width: 100%;
+	margin: 0;
+}
+
+	figcaption {
+		/* margin: 0.875rem 0; */
+		/* text-align: center; */
+	}
+
+blockquote {
+	/* margin: 0 0 1.75rem 0; */
+	/* font-size: 1.25rem; */
+	/* line-height: 1.5; */
+}
+
+hr {
+	/* height: 0.0625rem; */
+	/* margin: 0 0 1.5rem 0; */
+	/* background-color: var(--color-gray-50); */
+	/* border: 0; */
+}
+
+/* !- Inline */
+
+em,
+i {
+	/* font-style: italic; */
+}
+
+b,
+strong {
+	/* font-weight: bold; */
+}
+
+cite {
+	/* font-size: 1rem; */
+	/* line-height: 1.5; */
+}
+
+a {
+	color: var(--color-primary);
+	text-decoration-thickness: 0.125rem;
+	text-underline-offset: 0.125rem;
+}
+
+a:link {}
+
+a:hover,
+a:focus {}
+
+abbr,
+acronym {}
+
+	abbr[title],
+	acronym[title] {
+		/* border-bottom: 0.0625rem dotted var(--color-gray-50); */
+		/* text-decoration: none; */
+		/* cursor: help; */
+	}
+
+img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	box-sizing: content-box;
+}
+
+svg {
+	display: block;
+	box-sizing: content-box;
+}
+
+iframe {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: content-box;
+}
+
+code {
+	/* font-family: 'Courier New', Courier, monospace; */
+}
+
+sub {}
+
+sup {}
+
+ins {}
+
+mark {}
+
+/* !- Forms */
+
+form {}
+
+	fieldset {
+		/* margin: 0; */
+		/* padding: 0; */
+		/* border: none; */
+	}
+
+		legend {
+			/* display: block; */
+			/* margin: 0 0 0.625rem 0; */
+			/* text-align: center; */
+		}
+
+		label {
+			/* display: block; */
+			/* margin: 0 0 0.25rem 0; */
+			/* font-size: 0.75rem; */
+			/* line-height: 1rem; */
+			/* text-transform: uppercase; */
+			/* font-weight: bold; */
+			/* cursor: pointer; */
+		}
+
+		input,
+		input[type="text"],
+		input[type="search"],
+		input[type="email"],
+		input[type="tel"],
+		input[type="password"] {}
+
+		input:active,
+		input[type="text"]:active,
+		input[type="search"]:active,
+		input[type="email"]:active,
+		input[type="tel"]:active,
+		input[type="password"]:active {}
+
+		input:focus,
+		input[type="text"]:focus,
+		input[type="search"]:focus,
+		input[type="email"]:focus,
+		input[type="tel"]:focus,
+		input[type="password"]:focus {}
+
+		input[type="checkbox"] {}
+
+		input[type="checkbox"]:active {}
+
+		input[type="checkbox"]:focus {}
+
+		input[type="radio"] {}
+
+		input[type="radio"]:active {}
+
+		input[type="radio"]:focus {}
+
+		textarea {}
+
+		textarea:active {}
+
+		textarea:focus {}
+
+		select {}
+
+		select:active {}
+
+		select:focus {}
+
+		button,
+		input[type="button"],
+		input[type="submit"] {}
+
+		button:active,
+		input[type="button"]:active,
+		input[type="submit"]:active {}
+
+		button:focus,
+		input[type="button"]:focus,
+		input[type="submit"]:focus {}
+
+		button:hover,
+		input[type="button"]:hover,
+		input[type="submit"]:hover {}

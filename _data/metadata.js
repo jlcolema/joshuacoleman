@@ -1,11 +1,17 @@
 module.exports = {
 	title: "Joshua Coleman",
-	url: "https://joshuacoleman.dev/",
+	url: "http://localhost:8080/",
+	canonical: "http://localhost:8080",
 	language: "en",
-	description: "Web design and developer",
+	description: "The personal website of Joshua Coleman — web design and developer",
 	author: {
 		name: "Joshua Coleman",
 		email: "hello@joshuacoleman.dev",
-		url: "https://joshuacoleman.dev/about/"
+		url: "http://localhost:8080/about/"
+	},
+	social: {
+		codepen: "https://codepen.io/jlcolema",
+		github: "https://github.com/jlcolema",
+		mastodon: "https://hachyderm.io/coleman"
 	}
 }

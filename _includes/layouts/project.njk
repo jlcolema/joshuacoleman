@@ -1,6 +1,54 @@
 ---
 layout: base.njk
 title: Project
+overview: This is an overview.
+image:
+  small:
+  medium:
+  large:
+responsibilities:
 ---
 
-{{ content | safe }}
+<section class="section section__project project">
+
+	<h1 class="heading section__heading project__title">{{ title }}</h1>
+
+	<p class="overview section__overview project__overview">{{ overview }}</p>
+
+	<div class="project__content">
+
+		<figure class="">
+
+			<img src="/media/work/{{ title | slugify }}-large.jpg" srcset="/media/work/{{ title | slugify }}-large.jpg, /media/work/{{ title | slugify }}-large.jpg 2x" width="1000" height="800" alt="{{ title }}" class="" />
+
+			<figcaption class="">A very nice description.</figcaption>
+
+		</figure>
+
+		<h2 class="">Responsibilities</h2>
+
+		<ul>
+
+			{% for responsibility in responsibilities %}
+			
+				<li>{{ responsibility }}</li>
+			
+			{% endfor %}
+
+		</ul>
+
+		<p>I'm an <b>independent inclusive design engineer, author, speaker, and trainer</b> based in Lebanon. I love the web platform and I want to make it better for everyone. And I consider myself to be completely blessed that I get to build it for a living.</p>
+
+		<p>I have a Bachelor's Degreee is Computer Sciences, and have been doing what I do since 2013, when I started my freelance career, as well as published my first ever blog post on this site!</p>
+
+		<p>I work with companies and agencies around the world, building web user interfaces, design systems, and digital products with focus on responsive design, accessibility, performance, and cutting-edge tech. I've worked with teams at companies like <b>SuperFriendly</b>, <b>Herman Miller</b>, <b>Khan Academy</b>, <b>Bosch</b>, and more.</p>
+
+		<p>I also speak and run workshops across the globe, covering practical insights and tried and true practices for building scalable, resilient front-end foundations. Since 2014, I've presented and delivered Keynotes at dozens of events worldwide, and have led workshops at conferences, as well as in-house for companies like <b>Netflix</b>, <b>Telus</b>, and the <b>Royal Schiphol Group at Amsterdam Airport</b>.</p>
+
+		<p>I wrote the <a href="https://www.example.com/">Codrops CSS Reference</a>, and co-authored the <a href="https://www.example.com/">Smashing Book 5</a> — a book that covers time-saving, practical techniques for crafting fast, maintainable and scalable responsive websites.</p>
+
+	</div>
+
+	{{ content | safe }}
+
+</section>

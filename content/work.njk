@@ -4,14 +4,75 @@ eleventyNavigation:
   key: Work
   order: 2
 title: Work
+logo: /media/work/logo.svg
+image:
+  small:
+  medium:
+  large:
 ---
 
-<h1>{{ title }}</h1>
+<section class="section section__projects">
 
-<ul>
-	{% for post in collections.project %}
-		<li {% if page.url == post.url %}aria-current="page"{% endif %}>
-			<a href="{{ post.url }}">{{ post.data.title }}</a>
-		</li>
-	{% endfor %}
-</ul>
+	<div class="inner-wrap section__inner-wrap">
+
+		<h1 class="heading section__heading">{{ title }}</h1>
+
+		<p class="overview section__overview">83 articles on design engineering covering project case studies, though process, front-end strategy, techniques, and best practices, focused on HTML, CSS, SVG, accessibility, and everything in between.</p>
+
+		<ul class="project__list">
+
+			{% for project in collections.project | sort(attribute="data.title") %}
+
+				<li class="project__item">
+
+					<a href="{{ project.url }}" class="project__link" {% if project.data.accent %}style="background-color: #{{ project.data.accent }}{% endif %}">
+
+						<div class="project__samples">
+
+							<img src="{{ project.data.large }}" width="1000" height="800" loading="lazy" alt="Large screen view of the {{ project.data.title }} project." class="project__image project__image--large" />
+
+							{% if project.data.small or project.data.medium %}
+
+								{% if project.data.small %}
+
+									<div class="project__overlay project__overlay--small">
+
+										<img src="{{ project.data.small }}" width="320" height="568" loading="lazy" alt="Small screen view of the {{ project.data.title }} project." class="project__image project__image--small" />
+
+									</div>
+
+								{% else %}
+
+									<div class="project__overlay project__overlay--medium">
+
+										<img src="{{ project.data.medium }}" width="540" height="691" loading="lazy" alt="Medium screen view of the {{ project.data.title }} project." class="project__image project__image--medium" />
+
+									</div>
+
+								{% endif %}
+
+							{% endif %}
+
+						</div>
+
+						<figure class="project__figure">
+
+							<figcaption class="project__figcaption">
+
+								<h2 class="project__title">{{ project.data.title }}</h2>
+
+							</figcaption>
+
+						</figure>
+
+					</a>
+
+				</li>
+
+			{% endfor %}
+
+		</ul>
+
+	</div>
+
+</section>
