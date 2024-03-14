@@ -1,0 +1,122 @@
+<!doctype html>
+
+<html lang="{{ metadata.language }}">
+
+<head>
+
+	<meta charset="utf-8" />
+
+	<title>{{ title or metadata.title }}</title>
+
+	<meta name="description" content="{{ description or metadata.description }}" />
+
+	<meta name="keywords" content="{{ keywords or metadata.keywords }}" />
+
+	<meta name="generator" content="{{ eleventy.generator }}" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<meta name="theme-color" content="#ffffff" />
+
+	<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}" />
+	<link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}" />
+
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+
+	<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
+
+	{#-
+	CSS bundles are provided via the `eleventy-plugin-bundle` plugin:
+	1. You can add to them using `{% css %}`
+	2. You can get from them using `{% getBundle "css" %}` or `{% getBundleFileUrl "css" %}`
+	3. You can do the same for JS: {% js %}{% endjs %} and <script>{% getBundle "js" %}</script>
+	4. Learn more: https://github.com/11ty/eleventy-plugin-bundle
+	#}
+
+	{#- Add an arbitrary string to the bundle #}
+	{#- {%- css %}* { box-sizing: border-box; }{% endcss %} #}
+	{#- Add the contents of a file to the bundle #}
+	{#- {%- css %}{% include "public/assets/css/styles.css" %}{% endcss %} #}
+	{#- Or add from node_modules #}
+	{# {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %} #}
+
+	{#- Render the CSS bundle using Inlined CSS (for the fastest site performance in production) #}
+	{# <style>{% getBundle "css" %}</style> #}
+	{#- Renders the CSS bundle using a separate file, if you can't set CSP directive style-src: 'unsafe-inline' #}
+	{#- <link rel="stylesheet" href="{% getBundleFileUrl "css" %}"> #}
+
+	{# Auto-reload is not working with the above. Use this instead while in development. #}
+
+	<link rel="stylesheet" href="/assets/css/styles.css" />
+
+</head>
+
+<body class="">
+
+	<a href="#content" class="skip-link visually-hidden">Skip to main content.</a>
+
+	<header role="" class="header">
+
+		<div class="wrap header__wrap">
+
+			<div class="mark">
+
+				<a href="/" class="mark__link">{{ metadata.title }}</a>
+
+			</div>
+
+			<nav role="navigation" class="navigation">
+
+				<h2 class="navigation__heading visually-hidden">Top level navigation menu</h2>
+
+				<ul class="nav navigation__list">
+
+					{%- for entry in collections.all | eleventyNavigation %}
+
+						<li class="nav-item navigation__item">
+
+							<a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %} class="navigation__link">{{ entry.title }}</a>
+
+						</li>
+
+					{%- endfor %}
+
+				</ul>
+
+			</nav>
+
+		</div>
+
+	</header>
+
+	<main role="main" id="content" class="main">
+
+		<div class="wrap main__wrap">
+
+			{{ content | safe }}
+
+		</div>
+
+	</main>
+
+	<footer role="contentinfo" class="footer">
+
+		<div class="wrap footer__wrap">
+
+			<h3 class="">Let&rsquo;s work together.</h3>
+
+			<p class="">I love designing and building sites that work everywhere. If you think I&rsquo;d be a good fit for your next project, <a href="/contact/" class="">drop me a line</a>. I&rsquo;d love to hear from you.</p>
+
+			<p class="">Copyright {% currentYear %} {{ metadata.title }}.</p>
+
+		</div>
+
+	</footer>
+
+	<!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->
+
+</body>
+
+</html>

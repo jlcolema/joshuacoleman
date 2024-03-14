@@ -1,9 +1,6 @@
-# Title
-
 _site/
 node_modules/
 package-lock.json
-.nova
-.vscode
-*.code-workspace
+.cache
 .DS_Store
+*.code-workspace
