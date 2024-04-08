@@ -1,9 +1,0 @@
-{%- css %}.notelist { counter-reset: start-from {{ (noteslistCounter or noteslist.length) + 1 }} }{% endcss %}
-<ol reversed class="notelist">
-	{% for note in noteslist | reverse %}
-		<li class="notelist-item{% if note.url == url %} notelist-item-active{% endif %}">
-			<a href="{{ note.url }}" class="notelist-link">{% if note.data.title %}{{ note.data.title }}{% else %}<code>{{ note.url }}</code>{% endif %}</a>
-			<time class="notelist-date" datetime="{{ note.date | htmlDateString }}">{{ note.date | readableDate("LLLL yyyy") }}</time>
-		</li>
-	{% endfor %}
-</ol>
