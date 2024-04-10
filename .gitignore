@@ -1,2 +1,10 @@
-.DS_Store
+# Directories
+
 node_modules
+.nova
+_site
+
+# Files
+
+.DS_Store
+package-lock.json

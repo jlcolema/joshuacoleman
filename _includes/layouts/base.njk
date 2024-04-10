@@ -1,0 +1,293 @@
+<!doctype html>
+
+<html lang="{{ metadata.language }}">
+
+	<head>
+
+		<meta charset="utf-8" />
+
+		<title>{{ title or metadata.title }} &ndash; {{ metadata.author.name }}</title>
+
+		<meta name="description" content="{{ description or metadata.description }}" />
+
+		<meta name="build" content="20240409" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta name="theme-color" content="#ffffff" />
+
+		<meta name="generator" content="{{ eleventy.generator }}" />
+
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" sizes="180x180" />
+		<link rel="mask-icon" href="/assets/img/mask-icon.svg" color="#ffffff" />
+
+		<!--
+
+			- Find fonts to use, then connect them here (source: https://ethanmarcotte.com)
+
+		<style type="text/css">
+
+			@font-face {
+				font-display: swap;
+				font-family: Vesterbro;
+				font-style: normal;
+				font-weight: 300;
+				src: url(/assets/fonts/name/vesterbro-light.woff2) format("woff2");
+			}
+
+			@font-face{font-display: swap;
+				font-family: Vesterbro;
+				font-style: italic;
+				font-weight: 300;
+				src: url(/assets/fonts/name/vesterbro-light-italic.woff2) format("woff2");
+			}
+
+			@font-face {
+				font-display: swap;
+				font-family: "Untitled Sans";
+				font-feature-settings: "ss01";
+				font-style: normal;
+				font-weight: 400;
+				src: url(/assets/fonts/name/untitledsans.woff2) format("woff2");
+			}
+
+			@font-face {
+				font-display: swap;
+				font-family: "Untitled Sans";
+				font-feature-settings: "ss01";
+				font-style: normal;
+				font-weight: 700;
+				src: url(/assets/fonts/name/untitledsans-bold.woff2) format("woff2");
+			}
+
+		</style>
+
+		-->
+
+		<!-- <link rel="preload" as="style" href="/assets/css/styles.css?20240409" /> -->
+		<!-- <link rel="stylesheet" href="/assets/css/styles.css?20240409" type="text/css" /> -->
+
+		<link rel="me" href="{{ metadata.social.mastodon }}" />
+		<link rel="me" href="{{ metadata.social.github }}" />
+		<link rel="me" href="{{ metadata.social.codepen }}" />
+		<link rel="me" href="{{ metadata.social.keybase }}" />
+
+		<link rel="pingback" href="https://webmention.io/joshuacoleman.dev/xmlrpc" />
+		<link rel="webmention" href="https://webmention.io/joshuacoleman.dev/webmention" />
+
+		<link rel="alternate" href="/notes/feed.xml" type="application/atom+xml" title="{{ metadata.author.name }}" />
+		<link rel="alternate" href="/notes/feed.json" type="application/json" title="{{ metadata.author.name }}" />
+
+		<link rel="manifest" href="/manifest.json" />
+
+	</head>
+
+	<body>
+
+		<a href="#content" class="sr-only">Skip to content.</a>
+
+		<!-- ! Header -->
+
+		<header class="header">
+
+			<div class="wrap wrap--header">
+
+				<div class="logo">
+
+					<a href="/" class="logo__link">
+
+						{{ metadata.author.name }}
+
+					</a>
+
+				</div>
+
+				{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+
+				<nav class="nav" aria-labelledby="nav__label">
+
+					<p class="nav__label sr-only">Site Navigation</p>
+
+					<ul role="list" class="nav__list">
+
+						<li role="listitem" class="nav__item">
+							<a href="/work/" class="nav__link">Work</a>
+						</li>
+
+						<li role="listitem" class="nav__item">
+							<a href="/notes/" class="nav__link">Notes</a>
+						</li>
+
+						<li role="listitem" class="nav__item">
+							<a href="/contact/" class="nav__link">Contact</a>
+						</li>
+
+					</ul>
+
+				</nav>
+
+			</div>
+
+		</header>
+
+		<!-- ! Main -->
+
+		<main id="content" class="main">
+
+			<div class="wrap wrap--main">
+
+				{{ content | safe }}
+
+			</div>
+
+		</main>
+
+		<!-- ! Footer -->
+
+		<footer class="footer">
+
+			<div class="wrap wrap--footer">
+
+				<h3 class="">Let&rsquo;s work together.</h3>
+
+				<p class="">I love designing and building websites that work everywhere. If you think I&rsquo;d be a good fit for your next project, drop me a line. I&rsquo;d love to hear from you.</p>
+
+				<form>
+
+					<fieldset>
+
+						<legend>Contact Me</legend>
+
+						<ol class="">
+
+							<li class="">
+
+								<label for="name">Name (required):</label>
+
+								<input type="text" name="name" id="" class="" required="required" />
+
+							</li>
+
+							<li class="">
+
+								<label for="email">Email Address (required):</label>
+
+								<input type="email" name="email" id="" class="" required="required" />
+
+							</li>
+
+							<li class="">
+
+								<label for="subject">Subject (required):</label>
+
+								<input type="text" name="subject" id="" class="" required="required" />
+
+							</li>
+
+							<li class="">
+
+								<label for="message">Message (required):</label>
+
+								<textarea name="message" id="" class="" required="required"></textarea>
+
+							</li>
+
+						</ol>
+
+					</fieldset>
+
+					<button type="" name="" id="" class="">Send Message</button>
+
+				</form>
+
+				<div class="social">
+
+					<p class="social__heading">Find me elsewhere at:</p>
+
+					<ul role="list" class="social__list">
+
+						<li role="listitem" itemscope itemtype="https://schema.org/Organization" class="social__item">
+							<a href="{{ metadata.social.mastodon }}" class="social__link">Mastodon</a>
+						</li>
+
+						<li role="listitem" itemscope itemtype="https://schema.org/Organization" class="social__item">
+							<a href="{{ metadata.social.github }}" class="social__link">GitHub</a>
+						</li>
+
+						<li role="listitem" itemscope itemtype="https://schema.org/Organization" class="social__item">
+							<a href="{{ metadata.social.codepen }}" class="social__link">CodePen</a>
+						</li>
+
+					</ul>
+
+				</div>
+
+				<p class="">Copyright &copy; 2024 <a href="/">{{ metadata.author.name }}</a>. All rights reserved.</p>
+
+				<div class="">
+
+					<p class="">Choose a theme:</p>
+
+					<!--
+
+						- Color mode is selected automatically.
+						- Color mode is now "light."
+						- Color mode is now "dark."
+
+					-->
+
+					<span class="">Color mode is selected automatically.</span>
+
+					<ul class="">
+
+						<li class="">
+							<a href="#" class="">Auto</a>
+						</li>
+
+						<li class="">
+							<a href="#" class="">Light</a>
+						</li>
+
+						<li class="">
+							<a href="#" class="">Dark</a>
+						</li>
+
+					</ul>
+
+				</div>
+
+				<div class="">
+
+					<p class="">Title Needed</p>
+
+					<ul class="">
+
+						<li class="">
+							<a href="/accessibility/" class="">Accessibility</a>
+						</li>
+
+						<li class="">
+							<a href="#" class="">RSS</a>
+						</li>
+
+						<li class="">
+							<a href="#">Back to Top</a>
+						</li>
+
+					</ul>
+
+				</div>
+
+				<a href="#content" class="sr-only">Skip to content.</a>
+
+			</div>
+
+		</footer>
+
+		<!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->
+
+	</body>
+
+</html>
