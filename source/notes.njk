@@ -1,1 +1,52 @@
-<p>Hello, world.</p>
+---
+title: Notes
+overview: Here are a few words I've written. If you like them, you can sign up to have new entries emailed directly to you, or you can subscribe to my RSS feed.
+layout: layouts/page.njk
+draft: true
+---
+
+<ol reversed class="notes__list">
+
+	{% for note in collections.notes | reverse %}
+
+		{% if note.data.draft != true %}
+
+			<li class="notes__item">
+
+				<article class="">
+
+					<h3 class="">
+						<a href="{{ note.url }}" class="">{{ note.data.title }}</a>
+					</h3>
+
+					<span class="visually-hidden">Posted on</span>
+
+					<time datetime="{{ note.date | htmlDateString }}" class="">{{ note.date | readableDate("LLLL d, yyyy") }}</time>
+
+					<p class="">{{ note.data.excerpt }}</p>
+
+					<dl class="">
+
+						<dt class="">Tags</dt>
+
+						{% for tag in note.data.tags | filterTagList %}
+
+							<dd class="">
+
+								<a href="/tags/{{ tag | slugify }}/" class="">{{ tag }}</a>
+
+							</dd>
+
+						{% endfor %}
+
+					</dl>
+
+				</article>
+
+			</li>
+
+		{% endif %}
+
+	{% endfor %}
+
+</ol>

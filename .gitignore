@@ -7,4 +7,5 @@ _site
 # Files
 
 .DS_Store
+*.code-workspace
 package-lock.json

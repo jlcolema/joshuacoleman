@@ -10,75 +10,68 @@
 
 		<meta name="description" content="{{ description or metadata.description }}" />
 
-		<meta name="build" content="20240409" />
+		<meta name="build" content="{% currentBuildDate %}" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<meta name="theme-color" content="#ffffff" />
+		<meta name="theme-color" content="var(--color-white)" />
 
 		<meta name="generator" content="{{ eleventy.generator }}" />
 
 		<link rel="icon" href="/favicon.ico" sizes="any" />
 		<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
 		<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" sizes="180x180" />
-		<link rel="mask-icon" href="/assets/img/mask-icon.svg" color="#ffffff" />
-
-		<!--
-
-			- Find fonts to use, then connect them here (source: https://ethanmarcotte.com)
+		<link rel="mask-icon" href="/assets/img/mask-icon.svg" color="var(--color-white)" />
 
 		<style type="text/css">
 
 			@font-face {
-				font-display: swap;
-				font-family: Vesterbro;
+				font-family: "Inter";
 				font-style: normal;
-				font-weight: 300;
-				src: url(/assets/fonts/name/vesterbro-light.woff2) format("woff2");
+				font-weight: 100 900;
+				font-display: swap;
+				src: url(/assets/fonts/inter/inter-variable.woff2) format("woff2");
 			}
 
-			@font-face{font-display: swap;
-				font-family: Vesterbro;
+			@font-face {
+				font-family: "Inter";
 				font-style: italic;
-				font-weight: 300;
-				src: url(/assets/fonts/name/vesterbro-light-italic.woff2) format("woff2");
+				font-weight: 100 900;
+				font-display: swap;
+				src: url(/assets/fonts/inter/inter-variable-italic.woff2) format("woff2");
 			}
 
 			@font-face {
-				font-display: swap;
-				font-family: "Untitled Sans";
-				font-feature-settings: "ss01";
+				font-family: "Literata";
 				font-style: normal;
-				font-weight: 400;
-				src: url(/assets/fonts/name/untitledsans.woff2) format("woff2");
+				font-weight: 200 900;
+				font-display: swap;
+				src: url(/assets/fonts/literata/literata-variable.woff2) format("woff2");
 			}
 
 			@font-face {
+				font-family: "Literata";
+				font-style: italic;
+				font-weight: 200 900;
 				font-display: swap;
-				font-family: "Untitled Sans";
-				font-feature-settings: "ss01";
-				font-style: normal;
-				font-weight: 700;
-				src: url(/assets/fonts/name/untitledsans-bold.woff2) format("woff2");
+				src: url(/assets/fonts/literata/literata-variable-italic.woff2) format("woff2");
 			}
 
 		</style>
 
-		-->
+		<link rel="preload" as="style" href="/assets/css/styles.css?{% currentBuildDate %}" />
+		<link rel="stylesheet" href="/assets/css/styles.css?{% currentBuildDate %}" type="text/css" />
 
-		<!-- <link rel="preload" as="style" href="/assets/css/styles.css?20240409" /> -->
-		<!-- <link rel="stylesheet" href="/assets/css/styles.css?20240409" type="text/css" /> -->
-
-		<link rel="me" href="{{ metadata.social.mastodon }}" />
-		<link rel="me" href="{{ metadata.social.github }}" />
-		<link rel="me" href="{{ metadata.social.codepen }}" />
-		<link rel="me" href="{{ metadata.social.keybase }}" />
+		<link rel="me" href="{{ metadata.social.mastodon.url }}" />
+		<link rel="me" href="{{ metadata.social.github.url }}" />
+		<link rel="me" href="{{ metadata.social.codepen.url }}" />
+		<link rel="me" href="{{ metadata.social.keybase.url }}" />
 
 		<link rel="pingback" href="https://webmention.io/joshuacoleman.dev/xmlrpc" />
 		<link rel="webmention" href="https://webmention.io/joshuacoleman.dev/webmention" />
 
-		<link rel="alternate" href="/notes/feed.xml" type="application/atom+xml" title="{{ metadata.author.name }}" />
-		<link rel="alternate" href="/notes/feed.json" type="application/json" title="{{ metadata.author.name }}" />
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.author.name }}" />
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.author.name }}" />
 
 		<link rel="manifest" href="/manifest.json" />
 
@@ -86,42 +79,57 @@
 
 	<body>
 
-		<a href="#content" class="sr-only">Skip to content.</a>
+		<a href="#main" class="skip-to-content">Skip to main content.</a>
 
-		<!-- ! Header -->
+		{# Header #}
 
-		<header class="header">
+		<header id="header" class="header">
 
 			<div class="wrap wrap--header">
 
 				<div class="logo">
 
-					<a href="/" class="logo__link">
+					<a href="/" aria-label="Home Page" class="logo__link">
 
-						{{ metadata.author.name }}
+						<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="logo__svg">
+
+							<title>{{ metadata.author.name }}</title>
+
+								<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+
+										<polygon fill="var(--color-white)" fill-rule="nonzero" points="13 37.0416306 37.0416306 13 36.3345238 12.2928932 12.2928932 36.3345238"></polygon>
+
+										<g transform="translate(13.621, 9.86)" fill="var(--color-white)">
+
+												<path d="M22.452,17 L22.452,18.332 C21.8399969,17.2759947 20.7480079,16.748 19.176,16.748 C18.167995,16.748 17.3400032,16.8949985 16.692,17.189 C16.0439968,17.4830015 15.5550017,17.9479968 15.225,18.584 C14.8949984,19.2200032 14.6730006,19.9159962 14.559,20.672 C14.4449994,21.4280038 14.388,22.3939941 14.388,23.57 C14.388,24.3500039 14.4059998,25.0099973 14.442,25.55 C14.4780002,26.0900027 14.5529994,26.6419972 14.667,27.206 C14.7810006,27.7700028 14.9519989,28.2289982 15.18,28.583 C15.4080011,28.9370018 15.7019982,29.2609985 16.062,29.555 C16.4220018,29.8490015 16.8749973,30.0619993 17.421,30.194 C17.9670027,30.3260007 18.6119963,30.392 19.356,30.392 C20.1240038,30.392 20.7719974,30.2990009 21.3,30.113 C21.8280026,29.9269991 22.2359986,29.6450019 22.524,29.267 C22.8120014,28.8889981 23.0219993,28.4750023 23.154,28.025 C23.2860007,27.5749978 23.3759998,27.0260032 23.424,26.378 L22.362,26.324 C22.3259998,27.2600047 22.0890022,27.9919974 21.651,28.52 C21.2129978,29.0480026 20.4480055,29.312 19.356,29.312 C18.6719966,29.312 18.0960023,29.2190009 17.628,29.033 C17.1599977,28.8469991 16.8000013,28.6160014 16.548,28.34 C16.2959987,28.0639986 16.1040007,27.6500028 15.972,27.098 C15.8399993,26.5459972 15.7590002,26.0300024 15.729,25.55 C15.6989999,25.0699976 15.684,24.4100042 15.684,23.57 C15.684,22.777996 15.7049998,22.1210026 15.747,21.599 C15.7890002,21.0769974 15.8789993,20.5550026 16.017,20.033 C16.1550007,19.5109974 16.3469988,19.1030015 16.593,18.809 C16.8390012,18.5149985 17.1779978,18.2780009 17.61,18.098 C18.0420022,17.9179991 18.5639969,17.828 19.176,17.828 C20.3160057,17.828 21.1289976,18.0889974 21.615,18.611 C22.1010024,19.1330026 22.3799996,19.891995 22.452,20.888 L23.424,20.888 L23.424,17 L22.452,17 Z"></path>
+
+												<path d="M3.492,0.9 L4.932,0.9 L4.932,9.846 C4.932,10.7940047 4.80900123,11.4419983 4.563,11.79 C4.31699877,12.1380017 3.81600378,12.312 3.06,12.312 C2.30399622,12.312 1.79100135,12.1320018 1.521,11.772 C1.25099865,11.4119982 1.116,10.7700046 1.116,9.846 L-4.4408921e-16,9.846 C-4.4408921e-16,10.2300019 0.00599994,10.5359989 0.018,10.764 C0.03000006,10.9920011 0.0659997,11.2619984 0.126,11.574 C0.1860003,11.8860016 0.28199934,12.1349991 0.414,12.321 C0.54600066,12.5070009 0.71999892,12.6899991 0.936,12.87 C1.15200108,13.0500009 1.43399826,13.1819996 1.782,13.266 C2.13000174,13.3500004 2.5439976,13.392 3.024,13.392 C3.60000288,13.392 4.08599802,13.3290006 4.482,13.203 C4.87800198,13.0769994 5.18999886,12.918001 5.418,12.726 C5.64600114,12.533999 5.8199994,12.2730016 5.94,11.943 C6.0600006,11.6129983 6.13799982,11.2950015 6.174,10.989 C6.21000018,10.6829985 6.228,10.3020023 6.228,9.846 L6.228,0.9 L7.308,0.9 L7.308,-1.22124533e-15 L3.492,-1.22124533e-15 L3.492,0.9 Z"></path>
+
+										</g>
+								</g>
+
+						</svg>
 
 					</a>
 
 				</div>
 
-				{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-
-				<nav class="nav" aria-labelledby="nav__label">
-
-					<p class="nav__label sr-only">Site Navigation</p>
+				<nav class="nav" aria-label="Site Navigation">
 
 					<ul role="list" class="nav__list">
 
-						<li role="listitem" class="nav__item">
-							<a href="/work/" class="nav__link">Work</a>
-						</li>
+						{%- for entry in collections.all | eleventyNavigation %}
+
+							<li role="listitem" class="nav__item">
+								<a href="{{ entry.url }}" {% if entry.url == page.url %}aria-current="page"{% endif %} class="nav__link">{{ entry.title}}</a>
+							</li>
+
+						{%- endfor %}
 
 						<li role="listitem" class="nav__item">
-							<a href="/notes/" class="nav__link">Notes</a>
-						</li>
 
-						<li role="listitem" class="nav__item">
-							<a href="/contact/" class="nav__link">Contact</a>
+							<a href="#footer" title="Learn more about Joshua" class="nav__link">More&hellip;</a>
+
 						</li>
 
 					</ul>
@@ -132,9 +140,9 @@
 
 		</header>
 
-		<!-- ! Main -->
+		{# Main #}
 
-		<main id="content" class="main">
+		<main id="main" class="main">
 
 			<div class="wrap wrap--main">
 
@@ -144,143 +152,151 @@
 
 		</main>
 
-		<!-- ! Footer -->
+		{# Footer #}
 
-		<footer class="footer">
+		<footer id="footer" class="footer">
 
 			<div class="wrap wrap--footer">
 
-				<h3 class="">Let&rsquo;s work together.</h3>
+				<section class="section section--work-together">
 
-				<p class="">I love designing and building websites that work everywhere. If you think I&rsquo;d be a good fit for your next project, drop me a line. I&rsquo;d love to hear from you.</p>
+					<header class="section__header">
 
-				<form>
+						<h3 class="section__heading">Let&rsquo;s Work Together</h3>
 
-					<fieldset>
+					</header>
 
-						<legend>Contact Me</legend>
+					<div class="section__content">
 
-						<ol class="">
+						<p>If you think I&rsquo;d be a good fit for your next project, <a href="/contact/">please reach out</a>. I&rsquo;d love to hear from you.</p>
 
-							<li class="">
+					</div>
 
-								<label for="name">Name (required):</label>
-
-								<input type="text" name="name" id="" class="" required="required" />
-
-							</li>
-
-							<li class="">
-
-								<label for="email">Email Address (required):</label>
-
-								<input type="email" name="email" id="" class="" required="required" />
-
-							</li>
-
-							<li class="">
-
-								<label for="subject">Subject (required):</label>
-
-								<input type="text" name="subject" id="" class="" required="required" />
-
-							</li>
-
-							<li class="">
-
-								<label for="message">Message (required):</label>
-
-								<textarea name="message" id="" class="" required="required"></textarea>
-
-							</li>
-
-						</ol>
-
-					</fieldset>
-
-					<button type="" name="" id="" class="">Send Message</button>
-
-				</form>
+				</section>
 
 				<div class="social">
 
-					<p class="social__heading">Find me elsewhere at:</p>
+					<p class="social__heading visually-hidden">Find me elsewhere at:</p>
 
 					<ul role="list" class="social__list">
 
 						<li role="listitem" itemscope itemtype="https://schema.org/Organization" class="social__item">
-							<a href="{{ metadata.social.mastodon }}" class="social__link">Mastodon</a>
+
+							<a href="{{ metadata.social.mastodon.url }}" class="social__link">
+
+								<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="social__svg">
+
+									<title>{{ metadata.social.mastodon.title }}</title>
+
+									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+
+										<g transform="translate(9, 8)" fill="var(--color-black)" fill-rule="nonzero">
+
+											<path d="M11.3658974,0.000655631423 C15.0404722,0.0145183749 16.6461097,0.244230123 17.0798202,0.308677874 C19.7292534,0.702648319 21.9644716,2.7345315 22.3096507,5.31324714 C22.3699652,5.92896772 22.394086,6.66885901 22.3990123,7.40647779 L22.3996395,7.8964994 C22.3944167,9.27607709 22.3341883,10.547294 22.3335195,10.8580027 C22.3335195,11.0086493 22.311854,12.3829305 22.3030409,12.5280386 C22.070963,16.212973 19.785804,17.668116 17.384606,18.131502 C17.3519241,18.1414713 17.3141013,18.1481175 17.2762785,18.1555021 C15.7538184,18.4545799 14.1230308,18.5339648 12.5759674,18.5779034 C12.2058179,18.5875034 11.8367701,18.5875034 11.4669878,18.5875034 C9.9285594,18.5879371 8.39551076,18.4048729 6.8999746,18.0421479 C6.88385356,18.0378733 6.8666716,18.0416076 6.85374543,18.0521952 C6.84081927,18.0627829 6.83370755,18.0789473 6.8346109,18.0956865 C6.87689424,18.5852279 6.98269221,19.0671031 7.14931142,19.5290448 C7.35678609,20.0633234 8.08019334,21.3475119 10.7711214,21.3475119 C12.3347824,21.3503115 13.8932845,21.1671307 15.4141475,20.8017872 C15.4298672,20.7982411 15.4463385,20.8020422 15.4589473,20.8121257 C15.4713957,20.8220959 15.4787953,20.8371118 15.4791439,20.8531104 L15.4791439,22.6619775 C15.4785228,22.6792219 15.4701475,22.6952496 15.4563768,22.7055469 C14.9595392,23.0677634 14.2835023,23.2734256 13.7062454,23.4580415 C13.4511516,23.5388964 13.1930552,23.6098415 12.9325301,23.6707191 C10.5587963,24.2143095 8.08144129,24.0828821 5.77777533,23.2911487 C3.62628138,22.5320079 1.42998759,20.6710791 0.887615758,18.4350107 C0.597833847,17.2242077 0.393643542,15.9943003 0.276575318,14.754507 C0.107657889,12.8880397 0.0933366288,11.0171416 0.0206286919,9.14328971 C-0.0304137487,7.836578 -0.0010368045,6.4120813 0.273637624,5.12715426 C0.844284765,2.51816161 3.19664357,0.691571362 5.77263437,0.308677874 C6.21989834,0.242216131 7.0615478,0 10.9859403,0 Z M7.67553182,4 C6.56590289,4 5.67228853,4.38433377 4.99067496,5.13216827 C4.33022499,5.88215791 4,6.89399738 4,8.16732748 L4,14.4 L6.50825035,14.4 L6.50825035,8.35123299 C6.50825035,7.07790288 7.05266546,6.42848656 8.14295526,6.42848656 C9.34818524,6.42848656 9.95280712,7.19679492 9.95280712,8.71437453 L9.95280712,12.0250328 L12.4468268,12.0250328 L12.4468268,8.71437453 C12.4468268,7.19679492 13.0507189,6.42848656 14.2559489,6.42848656 C15.3524418,6.42848656 15.8917484,7.07790288 15.8917484,8.35123299 L15.8917484,14.3992816 L18.4,14.3992816 L18.4,8.16732748 C18.4007286,6.89327899 18.0715982,5.88143952 17.4111483,5.13252746 C16.7277103,4.38433377 15.8340959,4.00035919 14.7255616,4.00035919 C13.4437049,4.00035919 12.4734637,4.48598467 11.8265146,5.45723562 L11.2010941,6.48847137 L10.5767681,5.45723562 C9.92981908,4.48634386 8.95957793,4 7.67553182,4 Z" id="Combined-Shape"></path>
+
+										</g>
+
+									</g>
+
+								</svg>
+
+							</a>
+
 						</li>
 
 						<li role="listitem" itemscope itemtype="https://schema.org/Organization" class="social__item">
-							<a href="{{ metadata.social.github }}" class="social__link">GitHub</a>
+
+							<a href="{{ metadata.social.github.url }}" class="social__link">
+
+								<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="social__svg">
+
+									<title>{{ metadata.social.github.title }}</title>
+
+									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+
+										<g transform="translate(8, 8)" fill="var(--color-black)" fill-rule="nonzero">
+
+											<path d="M12.0000938,0 C5.37346875,0 0,5.37253125 0,12.0000937 C0,17.3020312 3.438375,21.80025 8.20640625,23.3869687 C8.806125,23.4980625 9.02634375,23.126625 9.02634375,22.8096562 C9.02634375,22.5235312 9.01509375,21.57825 9.01003125,20.5755937 C5.67159375,21.3014062 4.96715625,19.1596875 4.96715625,19.1596875 C4.42125,17.7726562 3.6346875,17.40375 3.6346875,17.40375 C2.54596875,16.659 3.7168125,16.674375 3.7168125,16.674375 C4.92178125,16.7589375 5.55628125,17.9109375 5.55628125,17.9109375 C6.626625,19.7454375 8.363625,19.2150937 9.048375,18.9084375 C9.15609375,18.1329375 9.4670625,17.6034375 9.81028125,17.3038125 C7.144875,17.0004375 4.34296875,15.9714375 4.34296875,11.373375 C4.34296875,10.0632187 4.81171875,8.9926875 5.57934375,8.1523125 C5.45475,7.8500625 5.04403125,6.629625 5.69559375,4.976625 C5.69559375,4.976625 6.7033125,4.654125 8.99653125,6.20671875 C9.95371875,5.94084375 10.9802812,5.80753125 12.0000937,5.8029375 C13.0199062,5.80753125 14.0473125,5.94075 15.0062812,6.20671875 C17.2966875,4.65421875 18.303,4.97671875 18.303,4.97671875 C18.9561562,6.62953125 18.54525,7.85015625 18.4206562,8.1523125 C19.1900625,8.9926875 19.655625,10.0632187 19.655625,11.373375 C19.655625,15.9824062 16.848375,16.99725 14.1762187,17.2943437 C14.606625,17.6667187 14.9901562,18.3970312 14.9901562,19.5165937 C14.9901562,21.1221562 14.9762812,22.4144062 14.9762812,22.8096562 C14.9762812,23.1290625 15.1922812,23.5032187 15.8005312,23.3852812 C20.5659375,21.796875 24,17.3003437 24,12.0001875 C24,5.37253125 18.6272812,0 12.0000938,0 Z M4.49446875,17.094375 C4.46803125,17.154 4.3741875,17.1719062 4.28878125,17.1309375 C4.2016875,17.0918437 4.15284375,17.0105625 4.18096875,16.95075 C4.20684375,16.8893437 4.300875,16.8721875 4.3876875,16.9133437 C4.474875,16.9525312 4.5245625,17.0345625 4.49446875,17.094375 Z M5.08471875,17.6210625 C5.02753125,17.674125 4.91559375,17.6494687 4.83965625,17.5656562 C4.7611875,17.4820312 4.74646875,17.3700937 4.8045,17.3162812 C4.8635625,17.2632187 4.97203125,17.2880625 5.0506875,17.3716875 C5.12925,17.4563437 5.1444375,17.5674375 5.08471875,17.6210625 Z M5.48971875,18.2949375 C5.416125,18.3460312 5.2959375,18.298125 5.22159375,18.1914375 C5.14809375,18.08475 5.14809375,17.9567812 5.2231875,17.9055 C5.29771875,17.8542187 5.416125,17.9003437 5.49140625,18.0062812 C5.56471875,18.11475 5.56471875,18.2427187 5.489625,18.2950312 L5.48971875,18.2949375 Z M6.17446875,19.0754063 C6.10875,19.1479688 5.96859375,19.1284688 5.86603125,19.0294688 C5.761125,18.9327188 5.73196875,18.7954688 5.79796875,18.7229063 C5.86453125,18.6501563 6.0054375,18.6705938 6.10875,18.7688438 C6.2128125,18.8654063 6.2446875,19.0036875 6.17446875,19.0754063 Z M7.05965625,19.3388438 C7.03059375,19.432875 6.89559375,19.475625 6.75975,19.4356875 C6.624,19.3945313 6.53521875,19.2844688 6.56259375,19.1895 C6.5908125,19.0948125 6.726375,19.050375 6.86325,19.093125 C6.9988125,19.134 7.087875,19.2433125 7.05965625,19.3389375 L7.05965625,19.3388438 Z M8.06690625,19.4506875 C8.07028125,19.5495937 7.9550625,19.631625 7.812375,19.6335 C7.6689375,19.6366875 7.55278125,19.556625 7.5511875,19.459125 C7.5511875,19.3592812 7.663875,19.278 7.80740625,19.2755625 C7.95009375,19.27275 8.06690625,19.35225 8.06690625,19.4506875 L8.06690625,19.4506875 Z M9.0564375,19.4127187 C9.0735,19.5092812 8.97440625,19.6084687 8.83265625,19.6349062 C8.6934375,19.6603125 8.5644375,19.6006875 8.54671875,19.5049687 C8.52946875,19.4059687 8.6304375,19.3067812 8.76946875,19.2811875 C8.91140625,19.2565312 9.03834375,19.3145625 9.0564375,19.4127187 Z" id="Shape"></path>
+
+										</g>
+
+									</g>
+
+								</svg>
+
+							</a>
+
 						</li>
 
 						<li role="listitem" itemscope itemtype="https://schema.org/Organization" class="social__item">
-							<a href="{{ metadata.social.codepen }}" class="social__link">CodePen</a>
+
+							<a href="{{ metadata.social.codepen.url }}" class="social__link">
+
+								<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+									<title>{{ metadata.social.codepen.title }}</title>
+
+									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+
+										<g transform="translate(9, 9)" stroke="var(--color-black)" stroke-width="2.3">
+
+											<polygon points="0 7.3 11 0 22 7.3 22 14.7 11 22 3.55271368e-15 14.7"></polygon>
+
+											<polyline points="0 7.3 11 14.7 22 7.3"></polyline>
+
+											<polyline points="22 14.7 11 7.3 0 14.7"></polyline>
+
+											<line x1="11" y1="0" x2="11" y2="7.3"></line>
+
+											<line x1="11" y1="14.7" x2="11" y2="22"></line>
+
+										</g>
+
+									</g>
+
+								</svg>
+
+							</a>
+
 						</li>
 
 					</ul>
 
 				</div>
 
-				<p class="">Copyright &copy; 2024 <a href="/">{{ metadata.author.name }}</a>. All rights reserved.</p>
+				<p class="built-with">This web site is built with <a href="https://11ty.dev" rel="external" class="built-with__link">Eleventy</a> and hosted on <a href="https://netlify.com" rel="external" class="built-with__link">Netlify</a>.</p>
 
-				<div class="">
+				<p class="copyright">Copyright &copy; 2024 <a href="/" {% if entry.url == page.url %}aria-current="page"{% endif %} class="copyright__link">{{ metadata.author.name }}</a>. All rights reserved.</p>
 
-					<p class="">Choose a theme:</p>
+				<div class="return-to-top">
 
-					<!--
+					<a href="#header" class="return-to-top__link">
 
-						- Color mode is selected automatically.
-						- Color mode is now "light."
-						- Color mode is now "dark."
+						<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="return-to-top__svg">
 
-					-->
+							<title>Return to Top</title>
 
-					<span class="">Color mode is selected automatically.</span>
+							<g id="return-to-top" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 
-					<ul class="">
+								<circle stroke="var(--color-white)" stroke-width="2" cx="15" cy="15" r="14"></circle>
 
-						<li class="">
-							<a href="#" class="">Auto</a>
-						</li>
+								<rect fill="var(--color-white)" x="14" y="12" width="2" height="18"></rect>
 
-						<li class="">
-							<a href="#" class="">Light</a>
-						</li>
+								<g transform="translate(10.0607, 10.0754)" fill="var(--color-white)">
 
-						<li class="">
-							<a href="#" class="">Dark</a>
-						</li>
+									<rect transform="translate(6.6967, 3.182) rotate(-45) translate(-6.6967, -3.182)" x="5.69669914" y="-0.318019485" width="2" height="7"></rect>
 
-					</ul>
+									<rect transform="translate(3.182, 3.182) rotate(45) translate(-3.182, -3.182)" x="2.18198052" y="-0.318019485" width="2" height="7"></rect>
 
-				</div>
+								</g>
 
-				<div class="">
+							</g>
 
-					<p class="">Title Needed</p>
+						</svg>
 
-					<ul class="">
-
-						<li class="">
-							<a href="/accessibility/" class="">Accessibility</a>
-						</li>
-
-						<li class="">
-							<a href="#" class="">RSS</a>
-						</li>
-
-						<li class="">
-							<a href="#">Back to Top</a>
-						</li>
-
-					</ul>
+					</a>
 
 				</div>
-
-				<a href="#content" class="sr-only">Skip to content.</a>
 
 			</div>
 

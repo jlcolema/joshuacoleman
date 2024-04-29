@@ -1,0 +1,68 @@
+/*-----------------------------*/
+/* Variables */
+/*-----------------------------*/
+
+:root {
+
+	/* Units */
+
+	--base-size-unit: 1.125rem; /* 18px */
+
+	--base-size-unit-small: calc(var(--base-size-unit) / 2); /* 9px */
+	--base-size-unit-medium: calc(var(--base-size-unit) * 1.5); /* 27px */
+	--base-size-unit-large: calc(var(--base-size-unit) * 2); /* 36px */
+
+	/* Fonts */
+
+	--font-serif: "Literata", Georgia, "Times New Roman", Times, serif;
+	--font-sans-serif: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+	--font-size-base: 1.125rem; /* 18px */
+	--line-height-base: 1.6666666667; /* 30px */
+	--font-family-base: var(--font-serif);
+	--font-weight-base: 400;
+
+	--font-weight-bold: 700;
+	--font-weight-bolder: 900;
+
+	/* Colors */
+
+	--color-black: #000000;
+	--color-white: #ffffff;
+
+	--color-gray-10: #e6e6e6;
+	--color-gray-20: #cbcbcb;
+	--color-gray-30: #b4b4b4;
+	--color-gray-40: #9a9a9a;
+	--color-gray-50: #808080;
+	--color-gray-60: #656565;
+	--color-gray-70: #4d4d4d;
+	--color-gray-80: #333333;
+	--color-gray-90: #191919;
+
+	--color-primary: #166ee9;
+
+	/* --color-primary-light: #166ee9; */
+	/* --color-primary-dark: #166ee9; */
+
+	--color-secondary: #ffff00;
+
+	/* --color-secondary-light: #ffff00; */
+	/* --color-secondary-dark: #ffff00; */
+
+	--color-construction: rgba(255, 192, 203, 0.50);
+
+	/* Spacing */
+
+	--space-base: var(--base-size-unit);
+
+	--space-small: calc(var(--base-size-unit) / 2); /* 9px */
+	--space-medium: calc(var(--base-size-unit) * 1.5); /* 27px */
+	--space-large: calc(var(--base-size-unit) * 2); /* 36px */
+
+	--space-xl: calc(var(--base-size-unit) * 2.5); /* 45px */
+	--space-xxl: calc(var(--base-size-unit) * 3); /* 54px */
+	--space-xxxl: calc(var(--base-size-unit) * 3.5); /* 63px */
+	--space-xxxxl: calc(var(--base-size-unit) * 4); /* 72px */
+
+}

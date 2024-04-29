@@ -1,7 +1,94 @@
 ---
 layout: layouts/base.njk
+type: note
 ---
 
-<h1>{{ title }}</h1>
+<article class="note">
 
-{{ content | safe }}
+	<header class="">
+
+		<h1 class="">{{ title }}</h1>
+
+		<aside class="">
+
+			<span class="">Posted on</span>
+
+			<time datetime="{{ page.date | htmlDateString }}" class="">{{ page.date | readableDate("LLLL dd, yyyy") }}</time>
+
+		</aside>
+
+	</header>
+
+	<div class="">
+
+		<dl class="">
+
+			<dt class="">Tags</dt>
+
+			{%- for tag in tags | filterTagList %}
+
+				{% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+
+				<dd class="">
+
+					<a href="{{ tagUrl }}" class="">{{ tag }}</a>
+
+				</dd>
+
+			{% endfor %}
+
+		</dl>
+
+		{{ content | safe }}
+
+	</div>
+
+	<div class="">
+
+		{%- if collections.notes %}
+
+			{%- set previousNote = collections.notes | getPreviousCollectionItem %}
+
+			{%- set nextNote = collections.notes | getNextCollectionItem %}
+
+			{%- if nextNote or previousNote %}
+
+				<nav class="entry-nav">
+
+					<ul class="entry-nav__list">
+
+						{%- if previousNote %}
+
+							<li class="entry-nav__item entry-nav__item--previous">
+
+								<span class="entry-nav__label">Previous:</span>
+
+								<a href="{{ previousNote.url }}" class="entry-nav__link">{{ previousNote.data.title }}</a>
+
+							</li>
+
+						{% endif %}
+
+						{%- if nextNote %}
+
+							<li class="entry-nav__item entry-nav__item--next">
+
+								<span class="entry-nav__label">Next:</span>
+
+								<a href="{{ nextNote.url }}" class="entry-nav__link">{{ nextNote.data.title }}</a>
+
+							</li>
+
+						{% endif %}
+
+					</ul>
+
+				</nav>
+
+			{%- endif %}
+
+		{%- endif %}
+
+	</div>
+
+</article>

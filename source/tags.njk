@@ -1,0 +1,119 @@
+---
+title: Tags
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - note
+    - notes
+    - project
+    - work
+    - tagList
+  addAllPagesToCollections: true
+layout: layouts/base.njk
+eleventyComputed:
+  title: Tagged "{{ tag }}"
+permalink: /tags/{{ tag | slugify }}/
+---
+
+<section class="">
+
+	<header class="">
+
+		<h1 class="">Tagged "{{ tag }}"</h1>
+
+		<div class="">
+
+			<p>Here are all of the entries tagged with "{{ tag }}".</p>
+
+		</div>
+
+	</header>
+
+	<div class="">
+
+		<ol reversed class="">
+
+			{% for entry in collections[ tag ] %}
+
+				{% if entry.data.type == 'project' %}
+
+					<li class="project">
+
+						<div class="">
+
+							<h3 class="">
+								<a href="{{ entry.url }}" class="">{{ entry.data.title }}</a>
+							</h3>
+
+							<span class="">Posted on</span>
+
+							<time datetime="{{ entry.date | htmlDateString }}" class="">{{ entry.date | readableDate("LLLL dd, yyyy") }}</time>
+
+							<p class="">{{ entry.data.description }}</p>
+
+							{#
+
+							<dl class="">
+
+								<dt class="">Tags</dt>
+
+								<dd class="">Tag</dd>
+								<dd class="">Tag</dd>
+								<dd class="">Tag</dd>
+
+							</dl>
+
+							#}
+
+						</div>
+
+					</li>
+
+				{% else %}
+
+					<li class="note">
+
+						<article class="">
+
+							<h3 class="">
+								<a href="{{ entry.url }}" class="">{{ entry.data.title }}</a>
+							</h3>
+
+							<span class="">Posted on</span>
+
+							<time datetime="{{ entry.date | htmlDateString }}" class="">{{ entry.date | readableDate("LLLL dd, yyyy") }}</time>
+
+							<p class="">{{ entry.data.excerpt }}</p>
+
+							{#
+
+							<dl class="">
+
+								<dt class="">Tags</dt>
+
+								<dd class="">Tag</dd>
+								<dd class="">Tag</dd>
+								<dd class="">Tag</dd>
+
+							</dl>
+
+							#}
+
+						</article>
+
+					</li>
+
+				{% endif %}
+
+			{% endfor %}
+
+		</ol>
+
+		<p>See <a href="/tags/">all tags</a>.</p>
+
+	</div>
+
+</section>

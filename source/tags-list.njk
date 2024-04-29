@@ -1,0 +1,39 @@
+---
+title: Tags List
+permalink: /tags/
+layout: layouts/base.njk
+---
+
+<section class="">
+
+	<header class="">
+
+		<h1 class="">{{ title }}</h1>
+
+		<div class="">
+
+			<p>Here are all the tags.</p>
+
+		</div>
+
+	</header>
+
+	<div class="">
+
+		<ul class="">
+
+			{% for tag in collections.all | getAllTags | filterTagList %}
+
+				{% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+
+				<li class="">
+					<a href="{{ tagUrl }}" class="">{{ tag }}</a>
+				</li>
+
+			{% endfor %}
+
+		</ul>
+
+	</div>
+
+</section>

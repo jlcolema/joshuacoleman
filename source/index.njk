@@ -1,136 +1,267 @@
 ---
 layout: layouts/base.njk
-eleventyNavigation:
-  key: Home
-	order: 1
-numberOfSelectedWorkToShow: 4
-numberOfRecentNotesToShow: 3
 ---
 
-<!-- ! Introduction -->
+{# Introduction #}
 
-<section class="">
+<section class="section section--introduction">
 
-	<header class="">
+	<header class="section__header">
 
-		<h1 class="">Hello, I&rsquo;m Joshua Coleman.</h1>
-
-	</header>
-
-	<p class="">I'm a web designer and developer with over two decades of experience in creating exceptional digital experiences. My career journey has taken me from the dynamic world of freelancing to the collaborative environments of small studios, all the way to the vast landscape of large agencies. This wide-ranging exposure has not only honed my technical skills but also deepened my appreciation for the art and science of web development.</p>
-
-	<p class="">I am deeply passionate about web standards, accessibility, and ensuring seamless functionality across all platforms. My approach to design and development is rooted in the belief that digital solutions should be inclusive, user-friendly, and accessible to everyone, anywhere, and on any device. I strive to keep abreast of the latest industry standards to deliver projects that not only look beautiful but also function flawlessly and meet the diverse needs of users.</p>
-
-	<p class="">In my work, I seek to harness the power of technology to create web experiences that are both innovative and universally accessible, ensuring every project I undertake is built to stand the test of time and technology advancements.</p>
-
-	<!-- Currently Exploring New Opportunities -->
-
-	<p class="">I'm currently on the lookout for new job opportunities that match my skill set and professional goals. This search is driven by my eagerness to join forward-thinking teams and projects where I can contribute significantly and enhance my career growth, making a positive difference along the way.</p>
-
-</section>
-
-<!-- ! Selected Work -->
-
-<section class="">
-
-	<header class="">
-
-		<h2 class="">Selected Work</h2>
-
-		<p class="">A short description.</p>
+		<h1 class="section__title">Hi, I&rsquo;m Joshua.</h1>
 
 	</header>
 
-	<ul class="">
+	<div class="section__content">
 
-		<!-- For featured work, just show the logo. -->
+		<p>Over the last decade, I&rsquo;ve focused on designing and building web experiences with accessibility and performance in mind. I care about creating work that looks great and functions well everywhere.</p>
 
-		<li class="">
+		<p>If you think I might be a good addition to your team, <a href="/contact/">please reach out</a>.</p>
 
-			<a href="" class="">
-
-				<figure class="">
-
-					<img src="/media/work/project/project.png" width="800" height="600" alt="Title of the project." class="" />
-
-					<figcaption>
-						<h3 class="">Title</h3>
-					</figcaption>
-
-				</figure>
-
-			</a>
-
-		</li>
-
-	</ul>
+	</div>
 
 </section>
 
-<section class="">
+{# Selected Work #}
 
-	<header class="">
+<section class="section section--selected-work">
 
-		<h3 class="">Title</h3>
+	<header class="section__header">
 
-		<p class="">In additional to the work above, I've been fortunate to work with many other companies such as:</p>
+		<h2 class="section__title">Selected Work</h2>
+
+		<div class="section__overview">
+
+			<p>Recent projects I&rsquo;ve helped work on.</p>
+
+		</div>
 
 	</header>
 
-	<ul class="">
+	<div class="section__content">
 
-		<li class="">Title</li>
-		<li class="">Title</li>
-		<li class="">Title</li>
+		<ul class="work__list">
 
-	</ul>
+			{% for project in collections.work | sortByTitle %}
 
-	<p class="">If you're interested in working with me, feel free to <a href="/contact/">reach out</a>.</p>
+				{% if project.data.featured.selected == true %}
+
+					<li class="work__item">
+
+						<a href="{{ project.url }}" title="View the {{ project.data.title }} project." class="work__link">
+
+							<figure class="work__figure">
+
+								<div class="work__samples">
+
+									{% if project.data.samples.banner == true %}
+
+										<img src="{{ metadata.path.work }}/{{ project.data.slug }}-banner-160.png" srcset="{{ metadata.path.work }}/{{ project.data.slug }}-banner-320.png 320w, {{ metadata.path.work }}/{{ project.data.slug }}-banner-640.png 640w, {{ metadata.path.work }}/{{ project.data.slug }}-banner-1280.png 1280w, {{ metadata.path.work }}/{{ project.data.slug }}-banner.png 2560w" width="1280" height="1024" loading="lazy" alt="The {{ project.data.title }} project banner." class="work__image work__image--banner" />
+
+									{% else %}
+
+										<img src="{{ metadata.path.work }}/{{ project.data.slug }}-large-160.jpg" srcset="{{ metadata.path.work }}/{{ project.data.slug }}-large-320.jpg 320w, {{ metadata.path.work }}/{{ project.data.slug }}-large-640.jpg 640w, {{ metadata.path.work }}/{{ project.data.slug }}-large-1280.jpg 1280w, {{ metadata.path.work }}/{{ project.data.slug }}-large.jpg 2560w" width="1280" height="1024" loading="lazy" alt="The {{ project.data.title }} project when viewed at larger screen sizes." class="work__image work__image--large" />
+
+									{% endif %}
+
+									<div class="work__overlay {% if project.data.samples.medium == true %}work__overlay--medium{% endif %}">
+
+										{% if project.data.samples.medium == true %}
+
+											<img src="{{ metadata.path.work }}/{{ project.data.slug }}-medium-160.jpg" srcset="{{ metadata.path.work }}/{{ project.data.slug }}-medium-320.jpg 320w, {{ metadata.path.work }}/{{ project.data.slug }}-medium-640.jpg 640w, {{ metadata.path.work }}/{{ project.data.slug }}-medium.jpg 1280w" width="640" height="819" loading="lazy" alt="The {{ project.data.title }} project when viewed at medium screen sizes." class="work__image work__image--medium" />
+
+										{% else %}
+
+											<img src="{{ metadata.path.work }}/{{ project.data.slug }}-small-160.jpg" srcset="{{ metadata.path.work }}/{{ project.data.slug }}-small-320.jpg 320w, {{ metadata.path.work }}/{{ project.data.slug }}-small.jpg 640w" width="320" height="568" loading="lazy" alt="The {{ project.data.title }} project when viewed at smaller screen sizes." class="work__image work__image--small" />
+
+										{% endif %}
+
+									</div>
+
+								</div>
+
+								<figcaption class="work__figcaption">
+
+									<h3 class="work__title">{{ project.data.title }}</h3>
+
+								</figcaption>
+
+							</figure>
+
+						</a>
+
+					</li>
+
+				{% endif %}
+
+			{% endfor %}
+
+		</ul>
+
+	</div>
 
 </section>
 
-<!-- ! Recent Notes -->
+<section class="section section--collaboration">
 
-<section class="">
+	<header class="section__header">
 
-	<header class="">
+		<h2 class="section__title visually-hidden">Additional Work</h2>
 
-		<h2 class="">Recent Notes</h2>
+		<div class="section__overview">
 
-		<p class="">A short description.</p>
+			<p>I&rsquo;ve also been fortunate to work on many other projects for:</p>
+
+		</div>
 
 	</header>
 
-	<ol class="">
+	<div class="section__content">
 
-		<li class="">
+		<ul class="collaboration__list">
 
-			<article class="">
+			<li class="collaboration__item">
 
-				<h3 class="">
-					<a href="" class="">Title</a>
-				</h3>
+				<img src="{{ metadata.path.work }}/i-see-me-logo.svg" width="276" height="70" alt="I See Me!" class="collaboration__logo" />
 
-				<span class="">Posted on</span>
+			</li>
 
-				<time datetime="" class="">April 9, 2023</time>
+			<li class="collaboration__item">
 
-				<p class="">Excerpt</p>
+				<img src="{{ metadata.path.work }}/inspire-sleep-logo.svg" width="276" height="70" alt="Inspire Sleep" class="collaboration__logo" />
 
-				<dl class="">
+			</li>
 
-					<dt class="">Tags</dt>
+			<li class="collaboration__item">
 
-					<dd class="">Tag</dd>
-					<dd class="">Tag</dd>
-					<dd class="">Tag</dd>
+				<img src="{{ metadata.path.work }}/musicnotes-logo.svg" width="276" height="70" alt="MusicNotes" class="collaboration__logo" />
 
-				</dl>
+			</li>
 
-			</article>
+			<li class="collaboration__item">
 
-		</li>
+				<img src="{{ metadata.path.work }}/rakuten-logo.svg" width="276" height="70" alt="Rakuten" class="collaboration__logo" />
 
-	</ol>
+			</li>
+
+			<li class="collaboration__item">
+
+				<img src="{{ metadata.path.work }}/reading-glasses-logo.svg" width="276" height="70" alt="ReadingGlasses" class="collaboration__logo" />
+
+			</li>
+
+			<li class="collaboration__item">
+
+				<img src="{{ metadata.path.work }}/sun-tan-city-logo.svg" width="276" height="70" alt="Sun Tan City" class="collaboration__logo" />
+
+			</li>
+
+			<li class="collaboration__item">
+
+				<img src="{{ metadata.path.work }}/time-warner-cable-logo.svg" width="276" height="70" alt="Time Warner Cable" class="collaboration__logo" />
+
+			</li>
+
+			<li class="collaboration__item">
+
+				<img src="{{ metadata.path.work }}/university-mechanical-contractors-logo.svg" width="276" height="70" alt="University Mechanical Contractors" class="collaboration__logo" />
+
+			</li>
+
+		</ul>
+
+	</div>
 
 </section>
+
+{# Looking for Work
+
+{% if metadata.available == true %}
+
+	<section class="section section--available-for-work section--is-inset">
+
+		<header class="section__header">
+
+			<h2 class="section__title">Looking for Work</h2>
+
+		</header>
+
+		<div class="section__content">
+
+			<p>I'm currently on the lookout for new job opportunities that match my skill set and professional goals. This search is driven by my eagerness to join forward-thinking teams and projects where I can contribute significantly and enhance my career growth, making a positive difference along the way.</p>
+
+		</div>
+
+	</section>
+
+{% endif %}
+
+#}
+
+{# Recent Notes
+
+<section class="section section--recent-notes">
+
+	<header class="section__header">
+
+		<h2 class="section__title">Recent Notes</h2>
+
+		<div class="section__overview">
+
+			<p>A short description.</p>
+
+		</div>
+
+	</header>
+
+	<div class="section__content">
+
+		<ol reversed class="notes__list">
+
+			{% for note in collections.notes | head(-1 * 3) | reverse %}
+
+				<li class="notes__item">
+
+					<article class="">
+
+						<h3 class="">
+							<a href="{{ note.url }}" {% if entry.url == page.url %}aria-current="page"{% endif %} class="">{{ note.data.title }}</a>
+						</h3>
+
+						<span class="visually-hidden">Posted on</span>
+
+						<time datetime="{{ note.date | htmlDateString }}" class="">{{ note.date | readableDate("LLLL d, yyyy") }}</time>
+
+						<p class="">{{ note.data.excerpt }}</p>
+
+						{{ note.data.category }}
+
+						<dl class="">
+
+							<dt class="">Tags</dt>
+
+							{% for tag in note.data.tags | filterTagList %}
+
+								<dd class="">
+
+									<a href="/tags/{{ tag | slugify }}/" class="">{{ tag }}</a>
+
+								</dd>
+
+							{% endfor %}
+
+						</dl>
+
+					</article>
+
+				</li>
+
+			{% endfor %}
+
+		</ol>
+
+	</div>
+
+</section>
+
+ #}

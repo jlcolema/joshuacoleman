@@ -1,0 +1,317 @@
+/*-----------------------------*/
+/* Base */
+/*-----------------------------*/
+
+html {
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-base);
+	font-family: var(--font-serif);
+	font-weight: var(--font-weight-base);
+	color: var(--color-black);
+	background-color: var(--color-white);
+}
+
+/* Block */
+/*-----------------------------*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-sans-serif);
+	font-weight: var(--font-weight-bold);
+}
+
+h1 {
+	margin-block: 2.375rem; /* 38px */
+	font-size: 2.375rem; /* 38px */
+	line-height: 1.3157894737; /* 50px */
+	font-weight: var(--font-weight-bolder);
+}
+
+h2 {
+	margin-block: 2.125rem; /* 34px */
+	font-size: 2.125rem; /* 34px */
+	line-height: 1.3529411765; /* 46px */
+}
+
+h3 {
+	margin-block: 1.875rem; /* 30px */
+	font-size: 1.875rem; /* 30px */
+	line-height: 1.4; /* 42px */
+}
+
+h4 {
+	margin-block: 1.625rem; /* 26px */
+	font-size: 1.625rem; /* 26px */
+	line-height: 1.4615384615; /* 38px */
+}
+
+h5 {
+	margin-block: 1.375rem; /* 22px */
+	font-size: 1.375rem; /* 22px */
+	line-height: 1.5454545455; /* 34px */
+}
+
+h6 {
+	margin-block: var(--space-base);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-base);
+}
+
+p {
+	margin-block: var(--space-base);
+}
+
+ol {
+
+	margin-block: var(--space-base);
+
+	li {}
+
+}
+
+ul {
+
+	margin-block: var(--space-base);
+
+	li {}
+
+}
+
+dl {
+	margin-block: var(--space-base);
+}
+
+	dt {}
+
+	dd {}
+
+table {
+	margin-block: var(--space-base);
+}
+
+	thead {}
+
+	tbody {}
+
+	tfoot {}
+
+		tr {}
+
+			th {}
+
+			td {}
+
+pre {
+	margin-block: var(--space-base);
+}
+
+article {}
+
+caption {
+	margin-block: var(--space-base);
+}
+
+figure {
+	margin-block: var(--space-base);
+}
+
+	figcaption {}
+
+blockquote {
+	margin-block: var(--space-base);
+}
+
+hr {}
+
+/* Inline */
+/* ----------------------------- */
+
+em,
+i {}
+
+b,
+strong {
+	font-weight: var(--font-weight-bold);
+}
+
+cite {}
+
+a {
+
+	color: var(--color-primary);
+	text-decoration: underline;
+	text-decoration-thickness: 0.125rem; /* 2px */
+	text-underline-offset: 0.125rem; /* 2px */
+
+	&:link {}
+
+	&:hover,
+	&:focus {}
+
+	&:visited {}
+
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin-block: var(--space-large);
+}
+
+svg {}
+
+iframe {}
+
+code {
+	padding-block: 0.0625rem; /* 1px */
+	padding-inline: 0.3125rem; /* 5px */
+	font-size: 1.0625rem; /* 17px */
+	line-height: normal;
+	background-color: var(--color-gray-10);
+	border-radius: 0.3125rem; /* 5px */
+}
+
+sub {}
+
+sup {}
+
+ins {}
+
+mark {}
+
+/* Forms */
+/* ----------------------------- */
+
+form {}
+
+	fieldset {
+		padding: 0;
+		border: none;
+	}
+
+		legend {
+			font-family: var(--font-sans-serif);
+		}
+
+		label {
+			display: block;
+			margin-block-end: var(--space-small);
+			font-family: var(--font-sans-serif);
+			font-weight: var(--font-weight-bold);
+		}
+
+		input {}
+
+		input[type="text"],
+		input[type="search"],
+		input[type="email"],
+		input[type="tel"],
+		input[type="url"],
+		input[type="password"] {
+
+			width: 100%;
+			padding-block: var(--space-small);
+			padding-inline: var(--space-small);
+			font-family: var(--font-sans-serif);
+			line-height: var(--line-height-base);
+			box-shadow: 0 2px 3px inset rgba(0, 0, 0, 0.11);
+			border: 1px solid var(--color-gray-30);
+
+			&:active {}
+
+			&:focus {}
+
+			&:hover {}
+
+		}
+
+		input[type="checkbox"] {
+
+			&:checked {}
+
+			&:active {}
+
+			&:focus {}
+
+			&:hover {}
+
+		}
+
+		input[type="radio"] {
+
+			&:checked {}
+
+			&:active {}
+
+			&:focus {}
+
+			&:hover {}
+
+		}
+
+		textarea {
+
+			width: 100%;
+			padding-block: var(--space-small);
+			padding-inline: var(--space-small);
+			font-family: var(--font-sans-serif);
+			line-height: var(--line-height-base);
+			box-shadow: 0 2px 3px inset rgba(0, 0, 0, 0.11);
+			border: 1px solid var(--color-gray-30);
+
+			&:active {}
+
+			&:focus {}
+
+			&:hover {}
+
+		}
+
+		select {
+
+			font-family: var(--font-sans-serif);
+
+			&:active {}
+
+			&:focus {}
+
+			&:hover {}
+
+		}
+
+		button,
+		input[type="button"],
+		input[type="submit"] {
+
+			padding-block: var(--space-base);
+			padding-inline: var(--space-base);
+			font-family: var(--font-sans-serif);
+			font-weight: var(--font-sans-serif-bold);
+			color: var(--color-white);
+			background-color: var(--color-primary);
+			border: none;
+			cursor: pointer;
+
+			&:active {}
+
+			&:focus {}
+
+			&:hover {}
+
+		}

@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+type: page
+---
+
+<section class="section section--{{ title | slugify }}">
+
+	<header class="section__header">
+
+		<h1 class="section__title">{{ title }}</h1>
+
+		{% if overview %}
+
+			<div class="section__overview">
+
+				<p>{{ overview }}</p>
+
+			</div>
+
+		{% endif %}
+
+	</header>
+
+	<div class="section__content">
+
+		{{ content | safe }}
+
+	</div>
+
+</section>

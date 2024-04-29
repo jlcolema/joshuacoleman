@@ -1,0 +1,66 @@
+---
+title: Work
+overview: A collection of projects I've worked on.
+layout: layouts/page.njk
+eleventyNavigation:
+  key: Work
+  order: 1
+---
+
+<ul class="work__list">
+
+	{% for project in collections.work | sortByTitle %}
+
+		{% if project.data.hidden != true %}
+
+			<li class="work__item">
+
+				<a href="{{ project.url }}" title="View the {{ project.data.title }} project." id="{{ project.data.slug }}" class="work__link">
+
+					<figure class="work__figure">
+
+						<div class="work__samples">
+
+							{% if project.data.samples.banner == true %}
+
+								<img src="{{ metadata.path.work }}/{{ project.data.slug }}-banner-160.png" srcset="{{ metadata.path.work }}/{{ project.data.slug }}-banner-320.png 320w, {{ metadata.path.work }}/{{ project.data.slug }}-banner-640.png 640w, {{ metadata.path.work }}/{{ project.data.slug }}-banner-1280.png 1280w, {{ metadata.path.work }}/{{ project.data.slug }}-banner.png 2560w" width="1280" height="1024" loading="lazy" alt="The {{ project.data.title }} project banner." class="work__image work__image--banner" />
+
+							{% else %}
+
+								<img src="{{ metadata.path.work }}/{{ project.data.slug }}-large-160.jpg" srcset="{{ metadata.path.work }}/{{ project.data.slug }}-large-320.jpg 320w, {{ metadata.path.work }}/{{ project.data.slug }}-large-640.jpg 640w, {{ metadata.path.work }}/{{ project.data.slug }}-large-1280.jpg 1280w, {{ metadata.path.work }}/{{ project.data.slug }}-large.jpg 2560w" width="1280" height="1024" loading="lazy" alt="The {{ project.data.title }} project when viewed at larger screen sizes." class="work__image work__image--large" />
+
+							{% endif %}
+
+							<div class="work__overlay {% if project.data.samples.medium == true %}work__overlay--medium{% endif %}">
+
+								{% if project.data.samples.medium == true %}
+
+									<img src="{{ metadata.path.work }}/{{ project.data.slug }}-medium-160.jpg" srcset="{{ metadata.path.work }}/{{ project.data.slug }}-medium-320.jpg 320w, {{ metadata.path.work }}/{{ project.data.slug }}-medium-640.jpg 640w, {{ metadata.path.work }}/{{ project.data.slug }}-medium.jpg 1280w" width="640" height="819" loading="lazy" alt="The {{ project.data.title }} project when viewed at medium screen sizes." class="work__image work__image--medium" />
+
+								{% else %}
+
+									<img src="{{ metadata.path.work }}/{{ project.data.slug }}-small-160.jpg" srcset="{{ metadata.path.work }}/{{ project.data.slug }}-small-320.jpg 320w, {{ metadata.path.work }}/{{ project.data.slug }}-small.jpg 640w" width="320" height="568" loading="lazy" alt="The {{ project.data.title }} project when viewed at smaller screen sizes." class="work__image work__image--small" />
+
+								{% endif %}
+
+							</div>
+
+						</div>
+
+						<figcaption class="work__figcaption">
+
+							<h3 class="work__title">{{ project.data.title }}</h3>
+
+						</figcaption>
+
+					</figure>
+
+				</a>
+
+			</li>
+
+		{% endif %}
+
+	{% endfor %}
+
+</ul>

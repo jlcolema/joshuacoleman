@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>return-to-top</title>
+    <g id="return-to-top" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="circle" stroke="#FFFFFF" stroke-width="2" cx="15" cy="15" r="14"></circle>
+        <rect id="Rectangle" fill="#FFFFFF" x="14" y="12" width="2" height="18"></rect>
+        <g id="Group" transform="translate(10.0607, 10.0754)" fill="#FFFFFF">
+            <rect id="Rectangle-Copy" transform="translate(6.6967, 3.182) rotate(-45) translate(-6.6967, -3.182)" x="5.69669914" y="-0.318019485" width="2" height="7"></rect>
+            <rect id="Rectangle-Copy-2" transform="translate(3.182, 3.182) rotate(45) translate(-3.182, -3.182)" x="2.18198052" y="-0.318019485" width="2" height="7"></rect>
+        </g>
+    </g>
+</svg>

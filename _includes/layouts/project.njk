@@ -1,3 +1,176 @@
 ---
 layout: layouts/base.njk
+type: project
 ---
+
+<section class="section section--project">
+
+	<header class="section__header">
+
+		<h1 class="section__title">{{ title }}</h1>
+
+		<div class="section__overview">
+
+			<p>{{ overview }}</p>
+
+		</div>
+
+	</header>
+
+	<div class="section__content">
+
+		<figure class="project__figure">
+
+			<div class="project__samples">
+
+				{% if samples.banner == true %}
+
+					<img src="{{ metadata.path.work }}/{{ slug }}-banner-160.png" srcset="{{ metadata.path.work }}/{{ slug }}-banner-320.png 320w, {{ metadata.path.work }}/{{ slug }}-banner-640.png 640w, {{ metadata.path.work }}/{{ slug }}-banner-1280.png 1280w, {{ metadata.path.work }}/{{ slug }}-banner.png 2560w" width="1280" height="1024" loading="lazy" alt="The {{ title }} project banner." class="project__image project__image--banner" />
+
+				{% else %}
+
+					<img src="{{ metadata.path.work }}/{{ slug }}-large-160.jpg" srcset="{{ metadata.path.work }}/{{ slug }}-large-320.jpg 320w, {{ metadata.path.work }}/{{ slug }}-large-640.jpg 640w, {{ metadata.path.work }}/{{ slug }}-large-1280.jpg 1280w, {{ metadata.path.work }}/{{ slug }}-large.jpg 2560w" width="1280" height="1024" loading="lazy" alt="The {{ title }} project when viewed at larger screen sizes." class="project__image project__image--large" />
+
+				{% endif %}
+
+				<div class="project__overlay {% if samples.medium == true %}project__overlay--medium{% endif %}">
+
+					{% if samples.medium == true %}
+
+						<img src="{{ metadata.path.work }}/{{ slug }}-medium-160.jpg" srcset="{{ metadata.path.work }}/{{ slug }}-medium-320.jpg 320w, {{ metadata.path.work }}/{{ slug }}-medium-640.jpg 640w, {{ metadata.path.work }}/{{ slug }}-medium.jpg 1280w" width="640" height="819" loading="lazy" alt="The {{ title }} project when viewed at medium screen sizes." class="project__image project__image--medium" />
+
+					{% else %}
+
+						<img src="{{ metadata.path.work }}/{{ slug }}-small-160.jpg" srcset="{{ metadata.path.work }}/{{ slug }}-small-320.jpg 320w, {{ metadata.path.work }}/{{ slug }}-small.jpg 640w" width="320" height="568" loading="lazy" alt="The {{ title }} project when viewed at smaller screen sizes." class="project__image project__image--small" />
+
+					{% endif %}
+
+				</div>
+
+			</div>
+
+			<figcaption class="project__figcaption">
+
+				<p class="">Examples of the {{ title }} project at different screen sizes.</p>
+
+			</figcaption>
+
+		</figure>
+
+		<div class="">
+
+			{# Placeholder Content
+
+			{{ content | safe }}
+
+			<h2>A secondary heading</h2>
+
+			<p>Lorem ipsum dolor sit amet, <em>consectetur adipiscing elit</em>. Sed sit amet <code>suscipit turpis</code>, nec sollicitudin enim. <a href="#">Curabitur sollicitudin orci</a> ac nisl mollis, ac venenatis nulla tristique. Nullam porta volutpat nulla, quis faucibus orci luctus a. Quisque cursus accumsan quam, <strong>sit amet tincidunt nunc</strong> auctor eget. Integer consequat rutrum lacus. Nulla facilisi. Aenean a augue ac lorem egestas efficitur.</p>
+
+			<img src="{{ metadata.path.work }}/{{ slug }}-large-160.jpg" srcset="{{ metadata.path.work }}/{{ slug }}-large-320.jpg 320w, {{ metadata.path.work }}/{{ slug }}-large-640.jpg 640w, {{ metadata.path.work }}/{{ slug }}-large-1280.jpg 1280w, {{ metadata.path.work }}/{{ slug }}-large.jpg 2560w" width="1280" height="1024" alt="A very nice description." />
+
+			<p>Pellentesque rhoncus eu orci sed vulputate. Vivamus mollis odio id dui feugiat, eu tempus quam sagittis. Duis at dolor sit amet leo fermentum consequat. Morbi eget arcu non mi gravida dictum ac nec libero. Mauris id magna ac urna vehicula volutpat in at magna. Phasellus vel urna et est mattis auctor. Donec finibus, nulla vel porttitor aliquam, risus leo cursus libero, vel molestie neque justo nec enim.</p>
+
+			<p>Pellentesque rhoncus eu orci sed vulputate. Vivamus mollis odio id dui feugiat, eu tempus quam sagittis. Duis at dolor sit amet leo fermentum consequat. Morbi eget arcu non mi gravida dictum ac nec libero. Mauris id magna ac urna vehicula volutpat in at magna. Phasellus vel urna et est mattis auctor. Donec finibus, nulla vel porttitor aliquam, risus leo cursus libero, vel molestie neque justo nec enim.</p>
+
+			<ul>
+				<li>Vivamus mollis odio id dui feugiat, eu tempus quam sagittis. Duis at dolor sit amet leo fermentum consequat.</li>
+				<li>Morbi eget arcu non mi gravida dictum ac nec libero. Mauris id magna ac urna vehicula volutpat in at magna.</li>
+				<li>Phasellus vel urna et est mattis auctor. Donec finibus, nulla vel porttitor aliquam, risus leo cursus libero, vel molestie neque justo nec enim.</li>
+			</ul>
+
+			<p>Pellentesque rhoncus eu orci sed vulputate. Vivamus mollis odio id dui feugiat, eu tempus quam sagittis. Duis at dolor sit amet leo fermentum consequat. Morbi eget arcu non mi gravida dictum ac nec libero. Mauris id magna ac urna vehicula volutpat in at magna. Phasellus vel urna et est mattis auctor. Donec finibus, nulla vel porttitor aliquam, risus leo cursus libero, vel molestie neque justo nec enim.</p>
+
+			<h3>A third-level heading</h3>
+
+			<p>Phasellus porta nisi sed felis fermentum, eget malesuada dolor convallis. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In vel sapien id libero consequat faucibus. Aenean sed massa vel velit sagittis dignissim in non dolor. Vivamus nec odio in diam elementum pretium. Integer id dapibus velit, eget condimentum libero.</p>
+
+			<h4>A fourth-level heading</h4>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet suscipit turpis, nec sollicitudin enim. Curabitur sollicitudin orci ac nisl mollis, ac venenatis nulla tristique. Nullam porta volutpat nulla, quis faucibus orci luctus a. Quisque cursus accumsan quam, sit amet tincidunt nunc auctor eget. Integer consequat rutrum lacus. Nulla facilisi. Aenean a augue ac lorem egestas efficitur.</p>
+
+			<h5>A fifth-level heading</h5>
+
+			<p>Pellentesque rhoncus eu orci sed vulputate. Vivamus mollis odio id dui feugiat, eu tempus quam sagittis. Duis at dolor sit amet leo fermentum consequat. Morbi eget arcu non mi gravida dictum ac nec libero. Mauris id magna ac urna vehicula volutpat in at magna. Phasellus vel urna et est mattis auctor. Donec finibus, nulla vel porttitor aliquam, risus leo cursus libero, vel molestie neque justo nec enim.</p>
+
+			<ol>
+				<li>Vivamus mollis odio id dui feugiat, eu tempus quam sagittis. Duis at dolor sit amet leo fermentum consequat.</li>
+				<li>Morbi eget arcu non mi gravida dictum ac nec libero. Mauris id magna ac urna vehicula volutpat in at magna.</li>
+				<li>Phasellus vel urna et est mattis auctor. Donec finibus, nulla vel porttitor aliquam, risus leo cursus libero, vel molestie neque justo nec enim.</li>
+			</ol>
+
+			<p>Pellentesque rhoncus eu orci sed vulputate. Vivamus mollis odio id dui feugiat, eu tempus quam sagittis. Duis at dolor sit amet leo fermentum consequat. Morbi eget arcu non mi gravida dictum ac nec libero. Mauris id magna ac urna vehicula volutpat in at magna. Phasellus vel urna et est mattis auctor. Donec finibus, nulla vel porttitor aliquam, risus leo cursus libero, vel molestie neque justo nec enim.</p>
+
+			<h6>A sixth-level heading</h6>
+
+			<p>Phasellus porta nisi sed felis fermentum, eget malesuada dolor convallis. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In vel sapien id libero consequat faucibus. Aenean sed massa vel velit sagittis dignissim in non dolor. Vivamus nec odio in diam elementum pretium. Integer id dapibus velit, eget condimentum libero.</p>
+
+			#}
+
+		</div>
+
+		{#
+
+		<dl class="project-tags">
+
+			<dt class="project-tags__heading">Responsibilities:</dt>
+
+			{%- for tag in tags | filterTagList %}
+
+				{% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+
+				<dd class="project-tags__item">{{ tag }}</dd>
+
+			{% endfor %}
+
+		</dl>
+
+		#}
+
+	</div>
+
+	{%- if collections.work %}
+
+		{%- set previousProject = collections.work | getPreviousCollectionItem %}
+
+		{%- set nextProject = collections.work | getNextCollectionItem %}
+
+		{%- if nextProject or previousProject %}
+
+			<nav class="entry-nav">
+
+				<ul class="entry-nav__list">
+
+					{%- if previousProject %}
+
+						<li class="entry-nav__item entry-nav__item--previous">
+
+							<span class="entry-nav__label">Previous:</span>
+
+							<a href="{{ previousProject.url }}" class="entry-nav__link">{{ previousProject.data.title }}</a>
+
+						</li>
+
+					{% endif %}
+
+					{%- if nextProject %}
+
+						<li class="entry-nav__item entry-nav__item--next">
+
+							<span class="entry-nav__label">Next:</span>
+
+							<a href="{{ nextProject.url }}" class="entry-nav__link">{{ nextProject.data.title }}</a>
+
+						</li>
+
+					{% endif %}
+
+				</ul>
+
+			</nav>
+
+		{%- endif %}
+
+	{%- endif %}
+
+</section>

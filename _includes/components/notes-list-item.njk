@@ -1,0 +1,33 @@
+<li class="notes__item">
+
+	<article class="">
+
+		<h3 class="">
+			<a href="{{ note.url }}" class="">{{ note.data.title }}</a>
+		</h3>
+
+		<span class="">Posted on</span>
+
+		<time datetime="{{ note.date | htmlDateString }}" class="">{{ note.date | readableDate("LLLL dd, yyyy") }}</time>
+
+		<p class="">{{ note.data.excerpt }}</p>
+
+		<dl class="">
+
+			<dt class="">Tags</dt>
+
+			{% for tag in note.data.tags | filterTagList %}
+
+				<dd class="">
+
+					<a href="/tags/{{ tag | slugify }}/" class="">{{ tag }}</a>
+
+				</dd>
+
+			{% endfor %}
+
+		</dl>
+
+	</article>
+
+</li>
