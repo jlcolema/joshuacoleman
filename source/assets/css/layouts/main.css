@@ -17,7 +17,7 @@
 				/* background-color: var(--color-construction); */
 			}
 
-			&:not(:first-child) {
+			&:not(:first-child)&:not(.section--is-inset) {
 				padding-block-start: var(--space-base);
 			}
 
@@ -45,6 +45,35 @@
 				}
 
 			.section__content {}
+
+		/* Inset */
+
+		.section--is-inset {
+
+			margin-block-start: var(--space-xxl);
+			padding-block: var(--space-base);
+			padding-inline: var(--space-large);
+			color: var(--color-primary);
+			background-color: rgba(22, 110, 233, 0.11);
+			border: 1px solid var(--color-primary);
+
+			.section__header {}
+
+				.section__title {
+					margin: 0;
+				}
+
+				.section__overview {}
+
+			.section__content {
+				font-family: var(--font-sans-serif);
+			}
+
+		}
+
+		/* Available */
+
+		.section--available {}
 
 		/* Introduction */
 
