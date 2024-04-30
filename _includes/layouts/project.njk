@@ -51,7 +51,17 @@ type: project
 
 			<figcaption class="project__figcaption">
 
-				<p class="">Examples of the {{ title }} project at different screen sizes.</p>
+				<p class="visually-hidden">Examples of {{ title }} at different screen sizes.</p>
+
+				{% if url.external or url.archive %}
+
+					<div class="project__url">
+
+						<a href="{% if url.external %}{{ url.external }}{% else %}{{ url.archive }}{% endif %}" rel="external" class="project__link">Visit the {% if url.archive %}Archived{% endif %} Site</a>
+
+					</div>
+
+				{% endif %}
 
 			</figcaption>
 
