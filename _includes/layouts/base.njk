@@ -148,6 +148,28 @@
 
 				{{ content | safe }}
 
+				{# Looking for Work #}
+
+				{% if metadata.available == true %}
+
+					<section class="section section--available section--is-inset">
+
+						<header class="section__header">
+
+							<h2 class="section__title visually-hidden">Looking for Work</h2>
+
+						</header>
+
+						<div class="section__content">
+
+							<p>I'm currently <b>on the lookout for new job opportunities</b> that match my skill set and professional goals. If you think I might be a good fit for your team, <a href="/contact/">please reach out</a>.</p>
+
+						</div>
+
+					</section>
+
+				{% endif %}
+
 			</div>
 
 		</main>
